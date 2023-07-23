@@ -3,6 +3,7 @@ import React from "react";
 import axios from "axios";
 import "./home.css";
 import { useEffect, useState } from "react";
+import Navbar from "../navbar/navbar";
 
 function Home() {
   const [listOfPosts, setListOfPosts] = useState([]);
@@ -18,7 +19,8 @@ function Home() {
   }, []);
   return (
     <div>
-      {listOfPosts.map((value, key) => {
+      <Navbar/>
+            {listOfPosts.map((value, key) => {
         return (
           <div className="post">
             <div className="title"> {value.title} </div>

@@ -24,7 +24,7 @@ function Signup() {
       axios.post("http://localhost:3001/signup", data)
       .then((response) => {
         console.log("it worked");
-
+        navigate('/login');
   
       });
     };
@@ -33,7 +33,7 @@ function Signup() {
       <div className='SignupPage'>
         <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
           <Form className='formContainer'>
-            <label><b>Name: </b> </label>
+            <label><b>Username: </b> </label>
             <ErrorMessage name="username" component='span'/>
             <Field id="inputSignup" name="username" placeholder="Username"/>
             <label> <b>Email: </b></label>
@@ -44,12 +44,14 @@ function Signup() {
             <Field id="inputSignup" name="password" placeholder="password"/>
   
             <button type="submit" > Create Account</button>
-            
-  
+            <br></br>
+            <p>Already have an account? <a href="/login">Login</a></p>
           </Form>
   
         </Formik>
+         
       </div>
+     
       
     )
   }

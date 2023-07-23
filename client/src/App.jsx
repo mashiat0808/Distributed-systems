@@ -11,14 +11,14 @@ function App() {
   return (
     <div className="App">
      <Router>
-      <Link to="/"> Homepage</Link>
-      <Link to="/createpost"> Create A post</Link>
-      <Link to="/signup"> Signup</Link>
-      <Link to='/login'> Login</Link>
+      {/* <Link to="/"> Homepage</Link>
+      <Link to="/createpost"> Create A post</Link> */}
+      <Link to="/signup"> </Link>
+      {/* <Link to='/login'> Login</Link> */}
      
       
       <Routes>
-      <Route path="/" element={<Home />}></Route>
+      <Route path="/posts" element={<Home />}></Route>
       <Route path="/createpost" element={<CreatePost />}></Route>
       <Route path="/signup" element={<Signup />}></Route>
       <Route path="/login" element={<Login />}></Route>

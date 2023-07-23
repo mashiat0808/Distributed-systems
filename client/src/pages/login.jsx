@@ -10,7 +10,7 @@ function Login() {
       password: "",
   
     };
-  
+   
     const navigate = useNavigate();
     const validationSchema = Yup.object().shape({
       username: Yup.string().required(),
@@ -22,7 +22,9 @@ function Login() {
       axios.post("http://localhost:3001/login", data)
       .then((response) => {
         console.log(response.data);
-        
+        if (response.data =="loggedin"){
+          navigate('/posts');
+        }
   
       });
     };

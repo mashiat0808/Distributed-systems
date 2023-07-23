@@ -4,6 +4,7 @@ const {Post} = require('../models/Posts');
 
 
 router.get('/posts', async(req, res)=>{
+    // ekhane authenticate dhukbe somewhere
     console.log(req.body);
     const listOfPosts =await Post.find()
     res.json(listOfPosts);
