@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const postrouter= require('./routes/posts');
 const signup= require('./routes/signup');
+const login= require('./routes/login');
 
 
 const bodyParser = require('body-parser');
@@ -19,6 +20,7 @@ app.use(cors());
 
 app.use('/', postrouter);
 app.use('/',signup);
+app.use('/',login);
 
 mongoose
   .connect("mongodb://localhost:27017/linkedin?retryWrites=true&w=majority")
