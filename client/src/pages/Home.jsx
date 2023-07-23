@@ -9,8 +9,14 @@ function Home() {
   const [listOfPosts, setListOfPosts] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/posts")
+    const config={
+      headers: {
+        Authorization: 'Bearer ' +localStorage.getItem('token'),
+      },
+    }
+    axios.get("http://localhost:3001/posts", config)
       .then((response) => {
+        console.log(response.data);
         setListOfPosts(response.data);
       })
       .catch((error) => {

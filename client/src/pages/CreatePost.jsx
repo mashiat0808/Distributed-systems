@@ -11,7 +11,7 @@ function CreatePost() {
   const initialValues ={
     title: "",
     postText: "",
-    username: "",
+    
 
   };
 
@@ -19,14 +19,19 @@ function CreatePost() {
   const validationSchema = Yup.object().shape({
     title: Yup.string().required('You must provide a title'),
     postText: Yup.string().required(),
-    username: Yup.string().min(3).max(20).required(),
+    
   });
   const onSubmit = (data) => {
-    axios.post("http://localhost:3001/posts", data)
+    const config={
+      headers: {
+        Authorization: 'Bearer ' +localStorage.getItem('token'),
+      },
+    }
+    axios.post("http://localhost:3001/posts", data, config)
     .then((response) => {
       console.log("it worked");
       
-        navigate('/');
+        navigate('/posts');
       
 
     });
@@ -45,9 +50,7 @@ function CreatePost() {
     <label> <b>Post: </b></label>
     <ErrorMessage name="postText" component='span'/>
     <Field id="inputCreatePost" name="postText" placeholder="Post content"/>
-    <label><b> Username: </b></label>
-    <ErrorMessage name="username" component='span'/>
-    <Field id="inputCreatePost" name="username" placeholder="Title of post"/>
+    
 
     <button type="submit" > Create Post</button>
 

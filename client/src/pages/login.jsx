@@ -22,7 +22,8 @@ function Login() {
       axios.post("http://localhost:3001/login", data)
       .then((response) => {
         console.log(response.data);
-        if (response.data =="loggedin"){
+        if (response.status ==200){
+          localStorage.setItem("token", response.data.accessToken);
           navigate('/posts');
         }
   
@@ -39,7 +40,7 @@ function Login() {
             
             <label><b> Password: </b></label>
             <ErrorMessage name="password" component='span'/>
-            <Field id="inputSignup" name="password" placeholder="password"/>
+            <Field id="inputSignup" type="password" name="password" placeholder="password"/>
   
             <button type="submit" > Login</button>
   
