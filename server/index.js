@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const postrouter= require('./routes/posts');
 const signup= require('./routes/signup');
 const login= require('./routes/login');
-
+const multer= require('multer');
+const minio = require('minio');
 
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
