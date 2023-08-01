@@ -6,7 +6,7 @@ const signup= require('./routes/signup');
 const login= require('./routes/login');
 const multer= require('multer');
 const minio = require('minio');
-
+const notification= require('./routes/notification');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -20,6 +20,7 @@ app.use(cors());
 app.use('/', postrouter);
 app.use('/',signup);
 app.use('/',login);
+app.use('/',notification);
 
 mongoose
   .connect("mongodb://localhost:27017/linkedin?retryWrites=true&w=majority")

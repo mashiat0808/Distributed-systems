@@ -5,6 +5,7 @@ const authenticateToken = require('../middleware/auth');
 const multer= require('multer');
 const minio = require('minio');
 const fs = require('fs'); 
+const{Notifications} = require('../models/notification');
 
 const minioClient = new minio.Client({
     endPoint: '127.0.0.1',
@@ -66,6 +67,10 @@ router.post('/posts', authenticateToken, upload.single('image'), async (req, res
       username: username,
       image: imageUrl, // Save the Minio object key in the image field
     });
+
+    await Notifications.create({
+      notification: username +' has posted',
+  })
     res.json(post);
   });
 module.exports = router;

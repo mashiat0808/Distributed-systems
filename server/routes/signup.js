@@ -1,6 +1,7 @@
 const express = require("express");
 const router= express.Router();
 const {User} = require('../models/users');
+const{Notifications} = require('../models/notification');
 
 router.post('/signup', async(req, res)=>{
     const user = req.body;
@@ -10,6 +11,10 @@ router.post('/signup', async(req, res)=>{
         email: user.email,
         password: user.password
     });
+
+    await Notifications.create({
+        notification: user.username +' has been created',
+    })
     res.json(user);
 } );
 module.exports = router; 

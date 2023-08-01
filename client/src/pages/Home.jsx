@@ -31,7 +31,11 @@ function Home() {
           <div className="post">
             <div className="title"> {value.title} </div>
             <div className="body">{value.postText}</div>
+            <div className= "body">
+               {value.image && <img src={`http://192.168.94.128:9000/linkedinbucket/${value.image}`} alt="Post" />}      </div>
             <div className="footer">@{value.username}</div>
+
+            
           </div>
         );
       })}

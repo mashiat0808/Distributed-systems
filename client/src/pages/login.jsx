@@ -43,7 +43,7 @@ function Login() {
             <Field id="inputSignup" type="password" name="password" placeholder="password"/>
   
             <button type="submit" > Login</button>
-  
+            <p>Dont have an account? <a href="/signup">Signup</a></p>
   
           </Form>
   
